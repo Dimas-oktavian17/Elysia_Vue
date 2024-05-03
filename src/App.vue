@@ -39,7 +39,8 @@ watchEffect(fetchData, { flush: 'post' }); // Fetch data after component updates
 </script>
 
 <template>
-  <div v-if="posts.length">
+  <h1 class="text-center text-red-600">test</h1>
+  <!-- <div v-if="posts.length">
     <ul>
       <li v-for="post in posts" :key="post.id || post.name">
         <h2>{{ post.name }}</h2>
@@ -51,7 +52,7 @@ watchEffect(fetchData, { flush: 'post' }); // Fetch data after component updates
   <div v-else>
     <p v-if="!posts.length">Loading data...</p>
     <p v-else>Error fetching data.</p>
-  </div>
+  </div> -->
 </template>
 
 <style scoped>
