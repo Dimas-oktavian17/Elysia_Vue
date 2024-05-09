@@ -6,6 +6,7 @@ onMounted(() => StoreAPI.GetAllBooks(`http://localhost:3000/books`))
 </script>
 <template>
   <DefaultLayouts>
-    <CardComponent></CardComponent>
+    <CardComponent />
+    <FormVue />
   </DefaultLayouts>
 </template>

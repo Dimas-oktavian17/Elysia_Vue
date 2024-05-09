@@ -6,7 +6,7 @@
     <header class="container bg-white">
         <HeaderItem />
     </header>
-    <main class="container grid grid-cols-1 py-2 lg:grid-cols-2 place-items-center">
+    <main class="container flex flex-col-reverse py-2 lg:flex-row-reverse lg:justify-evenly">
         <slot />
     </main>
     <footer class="container">
