@@ -1,5 +1,5 @@
 export interface Books {
-    IsFetching: boolean;
-    Error: string;
-    Data: object | any
+    id: string
+    title: string;
+    year: number;
 }

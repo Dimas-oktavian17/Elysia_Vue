@@ -1,37 +1,25 @@
-import { ref } from 'vue'
+import { ref, computed, watchEffect } from 'vue'
 import { defineStore } from 'pinia'
-import { useFetch } from '@vueuse/core'
-// import type { Books } from '@/interfaces/InterfacesStoreApi'
-
+import type { Books } from '@/interfaces/InterfacesStoreApi'
 export const StoreApi = defineStore('StoreApi', () => {
     // state
-    const Books = ref()
-    // const Result = ref(Books.value.data.books)
-    // ref<Books>({
-    //     IsFetching: false,
-    //     Error: '',
-    //     Data: ''
-    // })
+    const Books = ref<Books[]>([])
     // getters
-    // const getters = computed(() => data.value)
+    const BookRealData = computed(() => Books.value)
     // actions
-    const GetAllBooks = async (URL_API: string) => {
+    const GetAllBooks = async (URL: string): Promise<void> => {
         try {
-            const { isFetching, error, data } = await useFetch(URL_API)
-            return Books.value = data
-            // Books.value = {
-            //     IsFetching: isFetching.value,
-            //     Error: error.value,
-            //     Data: data.value
-            // }
+            const response = await fetch(URL);
+            const { data: { books } } = await response.json();
+            Books.value = books;
+            watchEffect(() => Books.value)
         } catch (error) {
             console.error(error);
         }
     }
     return {
         Books,
-        Result,
-        // getters,
+        BookRealData,
         GetAllBooks
     }
 })
