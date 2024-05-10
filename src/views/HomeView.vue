@@ -2,7 +2,7 @@
 import { StoreApi } from '@/stores/StoreApi';
 import { onMounted } from 'vue';
 const StoreAPI = StoreApi()
-onMounted(() => StoreAPI.GetAllBooks(`http://localhost:3000/books`))
+onMounted(() => StoreAPI.GetAllBooks(StoreAPI.API_URL))
 </script>
 <template>
   <DefaultLayouts>
