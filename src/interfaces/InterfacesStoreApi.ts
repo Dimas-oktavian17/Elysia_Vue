@@ -3,3 +3,8 @@ export interface Books {
     title: string;
     year: number;
 }
+export interface BooksInput {
+    id: string
+    author: string;
+    year: number;
+}

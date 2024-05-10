@@ -14,6 +14,8 @@ import HeaderItem from '@/components/ui/header/HeaderItem.vue'
 import NavItem from '@/components/ui/header/NavItem.vue'
 import FooterItem from '@/components/ui/footer/FooterItem.vue'
 import FormVue from '@/components/ui/forms/FormVue.vue'
+import AlertVue from '@/components/ui/alert/AlertComponent.vue'
+import AlertError from '@/components/ui/alert/AlertError.vue'
 const app = createApp(App)
 app
     .component('DefaultLayouts', DefaultLayouts)
@@ -24,6 +26,8 @@ app
     .component('ButtonVue', Button)
     .component('CardComponent', CardComponent)
     .component('FormVue', FormVue)
+    .component('AlertVue', AlertVue)
+    .component('AlertError', AlertError)
     .use(plugin, defaultConfig)
     .use(createPinia())
     .use(router)
