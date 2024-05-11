@@ -10,7 +10,13 @@ export const routes = [
     path: '/about',
     name: 'about',
     component: () => import('@/views/AboutView.vue')
-  }
+  },
+  {
+    path: '/books/:id',
+    name: 'BooksDetailsView',
+    component: () => import('@/views/Tables/TablesDetails.vue'),
+    props: route => ({ ...route.params, id: route.params.id }),
+  },
 ]
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

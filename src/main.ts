@@ -9,7 +9,7 @@ import router from './router'
 import { Icon } from '@iconify/vue';
 import { Button } from './components/ui/button'
 import CardComponent from './components/ui/card/CardComponent.vue'
-import DefaultLayouts from './layouts/DefaultLayouts.vue'
+import DefaultLayouts from '@/layouts/DefaultLayouts.vue'
 import HeaderItem from '@/components/ui/header/HeaderItem.vue'
 import NavItem from '@/components/ui/header/NavItem.vue'
 import FooterItem from '@/components/ui/footer/FooterItem.vue'
