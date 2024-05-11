@@ -38,6 +38,7 @@ export const StoreApi = defineStore('StoreApi', () => {
             statuses.value = true
             setTimeout(() => statuses.value = false, 3000);
             resetForm()
+            window.location.reload();
         } catch (error) {
             Error.value = error
             statuses.value = true
