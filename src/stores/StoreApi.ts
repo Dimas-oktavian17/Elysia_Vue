@@ -1,6 +1,7 @@
 import { ref, computed, watchEffect } from 'vue'
 import { defineStore } from 'pinia'
 import type { Books, BooksInput } from '@/interfaces/InterfacesStoreApi'
+import { useRoute } from 'vue-router'
 export const StoreApi = defineStore('StoreApi', () => {
     // state
     const API_URL = ref<string>(`http://localhost:3000/books`)
@@ -8,6 +9,7 @@ export const StoreApi = defineStore('StoreApi', () => {
     const statuses = ref<boolean>(false)
     const Succes = ref<Books>()
     const Error = ref<unknown | string>()
+    const dataView = ref<any>([])
     // getters
     const BookRealData = computed(() => Books.value)
     // actions
@@ -45,7 +47,18 @@ export const StoreApi = defineStore('StoreApi', () => {
             setTimeout(() => statuses.value = false, 3000);
         }
     }
+    const GetBookByID = async (item: any) => {
+        try {
+            const response = await fetch(`${API_URL.value}/${item.id}`)
+            const { data: { books } } = await response.json();
+            dataView.value = books
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    const TableView = () => dataView.value = Books.value.filter(details => details.id === useRoute().params.id)
     return {
+        GetBookByID,
         statuses,
         Succes,
         Error,
@@ -53,6 +66,8 @@ export const StoreApi = defineStore('StoreApi', () => {
         Books,
         BookRealData,
         GetAllBooks,
-        OnSubmit
+        OnSubmit,
+        TableView,
+        dataView
     }
 })
