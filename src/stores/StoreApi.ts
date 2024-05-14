@@ -49,9 +49,9 @@ export const StoreApi = defineStore('StoreApi', () => {
     }
     const GetBookByID = async (item: any) => {
         try {
-            const data = await fetch(`${API_URL.value}/${item.id}`)
-            const response = await data.json()
-            console.log(response);
+            const response = await fetch(`${API_URL.value}/${item.id}`)
+            const { data: { books } } = await response.json();
+            dataView.value = books
         } catch (error) {
             console.error(error);
         }

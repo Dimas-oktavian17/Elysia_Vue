@@ -25,8 +25,16 @@ const GetById = async (item) => await StoreAPI.GetBookByID(item)
                 </router-link>
             </footer>
             <ButtonVue class="mt-4" @click="GetById(item)">
-                Edit Books
+                Details
+                <router-link :to="{ name: 'BooksDetailsView', params: { id: item.id } }">
+                    ID: {{ item.id }}
+                </router-link>
                 <IconVue icon="flowbite:edit-solid" class="ml-2 text-white duration-500 group-hover:rotate-45 size-4" />
+            </ButtonVue>
+            <ButtonVue class="mt-4 ml-2" @click="putById(item)">
+                Edit Books
+                <IconVue icon="flowbite:edit-solid"
+                    class="ml-2 text-white duration-500 fill-white group-hover:rotate-45 size-4" />
             </ButtonVue>
         </div>
     </div>
