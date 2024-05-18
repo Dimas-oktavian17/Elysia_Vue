@@ -51,12 +51,13 @@ export const StoreApi = defineStore('StoreApi', () => {
         try {
             const response = await fetch(`${API_URL.value}/${item.id}`)
             const { data: { books } } = await response.json();
-            dataView.value = books
+            return dataView.value = books
+            // TableView()
         } catch (error) {
             console.error(error);
         }
     }
-    const TableView = () => dataView.value = Books.value.filter(details => details.id === useRoute().params.id)
+    const TableView = computed(() => dataView.value)
     return {
         GetBookByID,
         statuses,

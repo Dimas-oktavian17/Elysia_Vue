@@ -10,7 +10,8 @@ export const routes = [
     path: '/:id',
     name: 'BooksDetailsView',
     component: () => import('@/views/HomeDetails.vue'),
-    props: route => ({ ...route.params, id: route.params.id }),
+    // props: (route: any) => ({ ...route.params, id: route.params.id }),
+    props: true
   },
   {
     path: '/about',

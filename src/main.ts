@@ -16,6 +16,8 @@ import FooterItem from '@/components/ui/footer/FooterItem.vue'
 import FormVue from '@/components/ui/forms/FormVue.vue'
 import AlertVue from '@/components/ui/alert/AlertComponent.vue'
 import AlertError from '@/components/ui/alert/AlertError.vue'
+import TestVue from '@/components/ui/tes/TestVue.vue'
+
 const app = createApp(App)
 app
     .component('DefaultLayouts', DefaultLayouts)
@@ -28,6 +30,7 @@ app
     .component('FormVue', FormVue)
     .component('AlertVue', AlertVue)
     .component('AlertError', AlertError)
+    .component('TestVue', TestVue)
     .use(plugin, defaultConfig)
     .use(createPinia())
     .use(router)
