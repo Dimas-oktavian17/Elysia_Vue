@@ -57,6 +57,22 @@ export const StoreApi = defineStore('StoreApi', () => {
             console.error(error);
         }
     }
+    const DeleteBooksById = async (item: string) => {
+        try {
+            const data = await fetch(`${API_URL.value}/${item}`, {
+                method: "DELETE",
+            })
+            const response = await data.json()
+            // Succes.value = response
+            // statuses.value = true
+            // setTimeout(() => statuses.value = false, 3000);
+            // resetForm()
+            console.log(response);
+            window.location.reload();
+        } catch (error) {
+            console.error(error);
+        }
+    }
     const TableView = computed(() => dataView.value)
     return {
         GetBookByID,
@@ -69,6 +85,7 @@ export const StoreApi = defineStore('StoreApi', () => {
         GetAllBooks,
         OnSubmit,
         TableView,
-        dataView
+        dataView,
+        DeleteBooksById
     }
 })

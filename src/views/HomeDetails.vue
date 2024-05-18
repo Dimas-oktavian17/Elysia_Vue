@@ -10,7 +10,6 @@ const { dataView } = storeToRefs(StoreAPI)
 <template>
     <!-- ? should be wrapp -->
     <DefaultLayouts>
-
         <TestVue :data="dataView" />
     </DefaultLayouts>
 </template>

@@ -5,6 +5,7 @@ const StoreAPI = StoreApi()
 const { BookRealData } = storeToRefs(StoreAPI)
 import { RouterLink } from 'vue-router';
 const GetById = async (item) => await StoreAPI.GetBookByID(item)
+const DeleteBooks = async (item) => await StoreAPI.DeleteBooksById(item)
 </script>
 <template>
     <div class="w-full lg:w-1/2 ">
@@ -36,6 +37,12 @@ const GetById = async (item) => await StoreAPI.GetBookByID(item)
                 <IconVue icon="flowbite:edit-solid"
                     class="ml-2 text-white duration-500 fill-white group-hover:rotate-45 size-4" />
             </ButtonVue>
+            <ButtonVue class="mt-4 ml-2" @click="DeleteBooks(item.id)">
+                Delete Books
+                <IconVue icon="typcn:delete"
+                    class="ml-2 text-white duration-500 fill-white group-hover:rotate-45 size-4" />
+            </ButtonVue>
+
         </div>
     </div>
 </template>
